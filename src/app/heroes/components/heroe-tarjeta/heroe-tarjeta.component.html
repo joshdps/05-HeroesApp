@@ -1,0 +1,51 @@
+
+
+
+<div fxLayout="row wrap" 
+fxLayout.xs="column wrap"
+fxLayoutAlign="center" 
+fxLayoutGap="20px">
+
+<div fxFlex="15" 
+    fxFlex.sm="40" 
+    fxFlex.md="30" 
+    fxFlex.lg="20" 
+    *ngFor="let heroe of heroes">
+
+   <mat-card class="animate__pulse">
+       <mat-card-header>
+           <img mat-card-avatar [src]="heroe | imagen" alt="Hero Avatar">
+           <mat-card-title>{{ heroe.superhero }}</mat-card-title>
+           <mat-card-subtitle>{{ heroe.alter_ego }}</mat-card-subtitle>
+       </mat-card-header>
+       <img mat-card-image [src]="heroe | imagen" alt="Hero photo">
+
+       <mat-card-content>
+           <h3>{{heroe.publisher}}</h3>
+           <p>
+               <strong>Primera aparición</strong> {{heroe.first_appearance}}
+               <br>
+               <strong>Personajes</strong> {{ heroe.characters }}
+           </p>
+       </mat-card-content>
+       <hr>
+       <mat-card-actions>
+           <div fxLayout="row wrap"
+                fxLayout.xs="column wrap"
+                fxLayoutAlign="center">
+
+                <button type="button" 
+                    class="btn btn-primary "
+                    [routerLink] = "['/heroes',heroe.id]">
+                    ver detalle
+                </button>
+                <button type="button" 
+                    class="btn btn-primary ml"
+                    [routerLink] = "['/heroes/editar',heroe.id]">
+                    Editar
+                </button>
+           </div>    
+       </mat-card-actions>
+   </mat-card>
+</div>
+</div>
